@@ -1,7 +1,7 @@
 require "pry"
 class Owner
   # code goes here
-  
+
   attr_reader :name, :species
 
   @@all = []
@@ -32,7 +32,7 @@ class Owner
     Cat.all.select{|cat| cat.owner.name == self.name}
 
   end
-  
+
   def dogs
     # binding.pry
     Dog.all.select{|dog| dog.owner.name == self.name}
@@ -42,5 +42,5 @@ class Owner
     purchased_cat = Cat.new(name, self)
     purchased_cat.mood = "happy"
   end
-    
+
 end
