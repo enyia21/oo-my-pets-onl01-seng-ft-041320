@@ -1,7 +1,7 @@
 require "pry"
 class Owner
   # code goes here
-
+  
   attr_reader :name, :species
 
   @@all = []
@@ -17,35 +17,30 @@ class Owner
 
   def self.all
     @@all
+    # binding.pry
   end
 
-  # def self.find_or_create_owner(owner)
-  #   if self.all.any?{|known_owner| owner == known_owner}
-  #     known_owner
-  #   else
-  #     self.all << owner
-  #     owner
-  #   end
-  # end
-
   def self.count
-    @@all.size
+    self.all.count
   end
 
   def self.reset_all
-    @@all.clear
+    self.all.clear
   end
 
   def cats
-    Cat.all.select{|cat| cat.owner == self}
-    # binding.pry
+    Cat.all.select{|cat| cat.owner.name == self.name}
 
   end
-
+  
   def dogs
-    Dog.all.select{|dog| dog.owner == self}
     # binding.pry
+    Dog.all.select{|dog| dog.owner.name == self.name}
   end
 
-
+  def buy_cat(name)
+    purchased_cat = Cat.new(name, self)
+    purchased_cat.mood = "happy"
+  end
+    
 end
