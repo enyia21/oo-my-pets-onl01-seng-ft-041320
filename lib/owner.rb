@@ -29,13 +29,13 @@ class Owner
   end
 
   def cats
-    Cat.all.select{|cat| cat.owner.name == self.name}
+    Cat.all.select{|cat| cat.owner == self}
 
   end
 
   def dogs
     # binding.pry
-    Dog.all.select{|dog| dog.owner.name == self.name}
+    Dog.all.select{|dog| dog.owner == self}
   end
 
   def buy_cat(name)
