@@ -46,4 +46,5 @@ class Owner
   def buy_dog(name)
     purchased_dog = Dog.new(name, self)
     purchased_dog.mood = "happy"
+  end
 end
